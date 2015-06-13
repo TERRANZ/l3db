@@ -4,7 +4,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -56,8 +55,8 @@ public class StageHelper {
         openedStages.add(stage);
         stage.setTitle(title);
         stage.setScene(new Scene(windowPair.getKey()));
-        stage.getIcons().add(new Image(StageHelper.class.getResourceAsStream(C.IMAGES + "logo.png")));
-        stage.getScene().getStylesheets().add(C.STYLE + "hoopoe.css");
+//        stage.getIcons().add(new Image(StageHelper.class.getResourceAsStream(C.IMAGES + "logo.png")));
+        stage.getScene().getStylesheets().add(C.STYLE + "style.css");
         stage.show();
 
         return new Pair<>(stage, controller);
@@ -68,7 +67,7 @@ public class StageHelper {
         Stage stage = new Stage();
         stage.setTitle(title);
         stage.setScene(new Scene(windowPair.getKey()));
-        stage.getScene().getStylesheets().add(C.STYLE + "hoopoe.css");
+        stage.getScene().getStylesheets().add(C.STYLE + "style.css");
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(parent);
         stage.setResizable(false);

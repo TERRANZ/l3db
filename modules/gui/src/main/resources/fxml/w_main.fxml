@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0"
+      prefWidth="535.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.terra.l3db.gui.stages.MainWindow">
+    <children>
+        <HBox prefHeight="100.0" prefWidth="200.0">
+            <children>
+                <GridPane prefHeight="100.0" prefWidth="217.0" HBox.hgrow="NEVER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Label text="CKT">
+                            <GridPane.margin>
+                                <Insets left="10.0"/>
+                            </GridPane.margin>
+                        </Label>
+                        <Label text="PE Name" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets left="10.0"/>
+                            </GridPane.margin>
+                        </Label>
+                        <TextField promptText="Enter text" GridPane.columnIndex="1"/>
+                        <TextField promptText="Enter text" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    </children>
+                </GridPane>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Button mnemonicParsing="false" text="Load Config">
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </VBox.margin>
+                        </Button>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <Label text="PE Interface"/>
+                                <ComboBox prefWidth="150.0">
+                                    <HBox.margin>
+                                        <Insets left="10.0"/>
+                                    </HBox.margin>
+                                </ComboBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+            <tabs>
+                <Tab closable="false" text="Configuration">
+                    <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <HBox prefHeight="155.0" prefWidth="535.0">
+                                    <children>
+                                        <GridPane HBox.hgrow="NEVER">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                            </rowConstraints>
+                                            <children>
+                                                <Label text="PE Interface">
+                                                    <padding>
+                                                        <Insets left="10.0"/>
+                                                    </padding>
+                                                </Label>
+                                                <Label text="VRF" GridPane.rowIndex="1">
+                                                    <padding>
+                                                        <Insets left="10.0"/>
+                                                    </padding>
+                                                </Label>
+                                                <Label text="PE IP Address" GridPane.rowIndex="2">
+                                                    <padding>
+                                                        <Insets left="10.0"/>
+                                                    </padding>
+                                                </Label>
+                                                <Label text="PE Vlan" GridPane.rowIndex="3">
+                                                    <padding>
+                                                        <Insets left="10.0"/>
+                                                    </padding>
+                                                </Label>
+                                                <TextField GridPane.columnIndex="1"/>
+                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                                            </children>
+                                            <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                            </HBox.margin>
+                                        </GridPane>
+                                        <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0"
+                                              HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <Button mnemonicParsing="false" text="Show Full Config">
+                                                    <VBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </VBox.margin>
+                                                </Button>
+                                                <GridPane>
+                                                    <columnConstraints>
+                                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"
+                                                                           minWidth="10.0" prefWidth="100.0"/>
+                                                        <ColumnConstraints fillWidth="false" hgrow="SOMETIMES"
+                                                                           minWidth="10.0" prefWidth="100.0"/>
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label text="CE IP Address">
+                                                            <padding>
+                                                                <Insets left="10.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <Label text="CE VLAN" GridPane.rowIndex="1">
+                                                            <padding>
+                                                                <Insets left="10.0"/>
+                                                            </padding>
+                                                        </Label>
+                                                        <TextField GridPane.columnIndex="1">
+                                                            <GridPane.margin>
+                                                                <Insets right="10.0"/>
+                                                            </GridPane.margin>
+                                                        </TextField>
+                                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                            <GridPane.margin>
+                                                                <Insets right="10.0"/>
+                                                            </GridPane.margin>
+                                                        </TextField>
+                                                    </children>
+                                                </GridPane>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <VBox prefHeight="122.0" prefWidth="179.0">
+                                            <children>
+                                                <Button mnemonicParsing="false" text="Send Email">
+                                                    <VBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </VBox.margin>
+                                                </Button>
+                                                <Button mnemonicParsing="false" text="Save Pre-config as...">
+                                                    <VBox.margin>
+                                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                                    </VBox.margin>
+                                                </Button>
+                                            </children>
+                                        </VBox>
+                                        <ComboBox prefWidth="150.0" promptText="Column 1">
+                                            <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                            </HBox.margin>
+                                        </ComboBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="Ping Test">
+                    <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <GridPane VBox.vgrow="NEVER">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                    </rowConstraints>
+                                    <children>
+                                        <Button mnemonicParsing="false" text="Simple Ping Test"/>
+                                        <Label text="CE IP Address" GridPane.rowIndex="1">
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                            </padding>
+                                        </Label>
+                                        <Label text="Test name" GridPane.rowIndex="2">
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                            </padding>
+                                        </Label>
+                                        <Label text="Packet size" GridPane.rowIndex="3">
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                            </padding>
+                                        </Label>
+                                        <Label text="Packet qty" GridPane.rowIndex="4">
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                            </padding>
+                                        </Label>
+                                        <Label text="PE Type" GridPane.columnIndex="2">
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                            </padding>
+                                        </Label>
+                                        <Label text="VRF" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                            </padding>
+                                        </Label>
+                                        <Label text="Seq" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                            </padding>
+                                        </Label>
+                                        <Label text="Pattern" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                            </padding>
+                                        </Label>
+                                        <Label text="TOS" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                            </padding>
+                                        </Label>
+                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                                        <TextField GridPane.columnIndex="3"/>
+                                        <TextField GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+                                        <TextField GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+                                        <TextField GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+                                        <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                        <ChoiceBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </VBox.margin>
+                                </GridPane>
+                                <Button mnemonicParsing="false" text="Run Test">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" text="Save pre-conf Test...">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="PE Check">
+                    <content>
+                        <GridPane>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <Label text="PE Interface"/>
+                                <Label text="CE IP Address" GridPane.rowIndex="1"/>
+                                <Label text="VRF" GridPane.rowIndex="2"/>
+                                <Label text="AS #" GridPane.rowIndex="3"/>
+                                <TextField GridPane.columnIndex="1"/>
+                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                                <Button mnemonicParsing="false" text="Check input Q" GridPane.columnIndex="2">
+                                    <GridPane.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </GridPane.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" text="Check ARP" GridPane.columnIndex="2"
+                                        GridPane.rowIndex="1">
+                                    <GridPane.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </GridPane.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" text="Check BGP" GridPane.columnIndex="2"
+                                        GridPane.rowIndex="2">
+                                    <GridPane.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                                    </GridPane.margin>
+                                </Button>
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                        </GridPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</VBox>
