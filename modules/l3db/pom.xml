@@ -17,6 +17,26 @@
             <artifactId>shared</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>ru.terra.l3db</groupId>
+            <artifactId>gui</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.terra.l3db</groupId>
+            <artifactId>browser</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.terra.l3db</groupId>
+            <artifactId>filemanager</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.terra.l3db</groupId>
+            <artifactId>petroubleshoot</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>

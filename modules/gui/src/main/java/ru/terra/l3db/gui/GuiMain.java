@@ -8,7 +8,7 @@ import ru.terra.l3db.gui.parts.StageHelper;
  * Date: 10.06.15
  * Time: 17:42
  */
-public class Main extends Application {
+public class GuiMain extends Application {
     public static void main(String... args) {
         launch(args);
     }
