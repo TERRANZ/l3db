@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
  * Date: 13.06.15
  * Time: 17:20
  */
-public class MainWindow extends AbstractUIController {
+public class GuiWindow extends AbstractUIController {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
