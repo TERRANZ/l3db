@@ -22,4 +22,16 @@ public class MainContext {
 
     public void init() throws L3DBException {
     }
+
+    public void gotoL3_DB_Page(String page) {
+    }
+
+    public void inputCKT_ID(String id) {
+    }
+
+    public void pressSubmit() {
+    }
+
+    public void requestInfo(String... args) {
+    }
 }
