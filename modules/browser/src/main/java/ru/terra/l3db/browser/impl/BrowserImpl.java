@@ -9,24 +9,43 @@ import ru.terra.l3db.shared.entity.Browser;
 public class BrowserImpl implements Browser {
 
 
-
     @Override
     public void go2page(String page) {
 
     }
 
     @Override
-    public void input2txtBox(String boxPath, String text) {
+    public void login(String user, String pass, String userXpath, String passXpath) {
 
+    }
+
+    @Override
+    public void inputData(String boxPath, String text) {
+
+    }
+
+    @Override
+    public void chooseDropBoxElement(String xpath, String text) {
+
+    }
+
+    @Override
+    public boolean isExistDropBoxElement(String xpath, String text) {
+        return false;
+    }
+
+    @Override
+    public String getElementText(String xpath) {
+        return null;
+    }
+
+    @Override
+    public String[][] getElementTable(String xpath) {
+        return new String[0][];
     }
 
     @Override
     public void pressSubmit(String submitXpath, String text) {
 
-    }
-
-    @Override
-    public String getData(String... args) {
-        return null;
     }
 }

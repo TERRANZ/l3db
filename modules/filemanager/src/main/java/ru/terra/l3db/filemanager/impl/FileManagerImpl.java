@@ -10,12 +10,12 @@ import ru.terra.l3db.shared.parts.FileManager;
  */
 public class FileManagerImpl implements FileManager {
     @Override
-    public Configuration requestConfiguration() {
+    public Configuration loadMainConfiguration() {
         return null;
     }
 
     @Override
-    public void returnConfiguration(Configuration configuration) {
+    public void saveMainConfiguration(Configuration configuration) {
 
     }
 
@@ -27,5 +27,20 @@ public class FileManagerImpl implements FileManager {
     @Override
     public void returnTestsAndDefaultDir(PreconfTest preconfTest, String defDir) {
 
+    }
+
+    @Override
+    public String loadEmailTemplate(String path) {
+        return null;
+    }
+
+    @Override
+    public Configuration.L3DBConfiguration loadL3DBConfig(String path) {
+        return null;
+    }
+
+    @Override
+    public Configuration.PETroubleShootConfiguration loadPETConfiguration(String path) {
+        return null;
     }
 }

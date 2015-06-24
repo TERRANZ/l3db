@@ -8,11 +8,17 @@ import ru.terra.l3db.shared.entity.PreconfTest;
  * Time: 10:34
  */
 public interface FileManager {
-    public Configuration requestConfiguration();
+    public Configuration loadMainConfiguration();
 
-    public void returnConfiguration(Configuration configuration);
+    public void saveMainConfiguration(Configuration configuration);
 
     public PreconfTest requestPreconfTest();
 
     public void returnTestsAndDefaultDir(PreconfTest preconfTest, String defDir);
+
+    public String loadEmailTemplate(String path);
+
+    public Configuration.L3DBConfiguration loadL3DBConfig(String path);
+
+    public Configuration.PETroubleShootConfiguration loadPETConfiguration(String path);
 }
