@@ -5,7 +5,7 @@ package ru.terra.l3db.shared.entity;
  * Time: 10:50
  */
 public interface Browser {
-    public void go2page(String page);
+    public void openPage(String page);
 
     public void login(String user, String pass, String userXpath, String passXpath);
 
@@ -20,4 +20,6 @@ public interface Browser {
     public String getElementText(String xpath);
 
     public String[][] getElementTable(String xpath);
+
+    public boolean isTextExists(String text);
 }
