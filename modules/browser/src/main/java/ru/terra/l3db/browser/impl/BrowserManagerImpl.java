@@ -10,6 +10,6 @@ import ru.terra.l3db.shared.parts.BrowserManager;
 public class BrowserManagerImpl implements BrowserManager {
     @Override
     public Browser createBrowser() {
-        return new BrowserImpl();
+        return new BrowserImpl(null);
     }
 }

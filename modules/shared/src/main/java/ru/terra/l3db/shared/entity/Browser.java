@@ -7,13 +7,13 @@ package ru.terra.l3db.shared.entity;
 public interface Browser {
     public void openPage(String page);
 
-    public void login(String user, String pass, String userXpath, String passXpath);
+    public boolean login(String user, String pass, String userXpath, String passXpath);
 
-    public void pressSubmit(String submitXpath, String text);
+    public boolean pressSubmit(String submitXpath, String text);
 
-    public void inputData(String boxPath, String text);
+    public boolean inputData(String boxPath, String text);
 
-    public void chooseDropBoxElement(String xpath, String text);
+    public boolean chooseDropBoxElement(String xpath, String text);
 
     public boolean isExistDropBoxElement(String xpath, String text);
 
