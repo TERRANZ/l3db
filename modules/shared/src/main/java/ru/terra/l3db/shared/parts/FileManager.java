@@ -3,14 +3,16 @@ package ru.terra.l3db.shared.parts;
 import ru.terra.l3db.shared.entity.Configuration;
 import ru.terra.l3db.shared.entity.PreconfTest;
 
+import java.io.File;
+
 /**
  * Date: 15.06.15
  * Time: 10:34
  */
 public interface FileManager {
-    public Configuration loadMainConfiguration();
+    public Configuration loadMainConfiguration(File configurationFile);
 
-    public void saveMainConfiguration(Configuration configuration);
+    public void saveMainConfiguration(Configuration configuration, File targetFile);
 
     public PreconfTest requestPreconfTest();
 

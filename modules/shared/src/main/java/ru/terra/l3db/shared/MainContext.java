@@ -34,4 +34,12 @@ public class MainContext {
 
     public void requestInfo(String... args) {
     }
+
+    public FileManager getFileManager() {
+        return fileManager;
+    }
+
+    public BrowserManager getBrowserManager() {
+        return browserManager;
+    }
 }
