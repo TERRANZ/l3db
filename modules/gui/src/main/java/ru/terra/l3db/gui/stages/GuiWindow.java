@@ -1,6 +1,9 @@
 package ru.terra.l3db.gui.stages;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import ru.terra.l3db.gui.parts.AbstractUIController;
 import ru.terra.l3db.shared.MainContext;
@@ -15,11 +18,51 @@ import java.util.ResourceBundle;
  * Time: 17:20
  */
 public class GuiWindow extends AbstractUIController {
+    @FXML
+    public Label lblVersion;
+    @FXML
+    public TextField tfCKT;
+    @FXML
+    public TextField tfPEName;
+    @FXML
+    public TextField tfConfigPEInterface;
+    @FXML
+    public TextField tfConfigVRF;
+    @FXML
+    public TextField tfConfigPEIPAddress;
+    @FXML
+    public TextField tfConfigPEVLAN;
+    @FXML
+    public TextField tfConfigCEIPADDRESS;
+    @FXML
+    public TextField tfConfigCEVLAN;
+    @FXML
+    public TextField tfPTCEIPAddress;
+    @FXML
+    public TextField tfPTPacketSize;
+    @FXML
+    public TextField tfPTPacketQTY;
+    @FXML
+    public TextField tfPTPEType;
+    @FXML
+    public TextField tfPTVRF;
+    @FXML
+    public TextField tfPTPattern;
+    @FXML
+    public TextField tfPTTOS;
+    @FXML
+    public TextField tfPECheckPEInterface;
+    @FXML
+    public TextField tfPEChecCEIPAddress;
+    @FXML
+    public TextField tfPEChecVRF;
+    @FXML
+    public TextField tfPEChecAS;
     private Configuration configuration;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        lblVersion.setText("Version: " + MainContext.getInstance().getVersion());
     }
 
     public void loadConfig(ActionEvent actionEvent) {

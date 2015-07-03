@@ -4,6 +4,10 @@ import ru.terra.l3db.shared.exception.L3DBException;
 import ru.terra.l3db.shared.parts.BrowserManager;
 import ru.terra.l3db.shared.parts.FileManager;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 /**
  * Date: 15.06.15
  * Time: 10:31
@@ -41,5 +45,23 @@ public class MainContext {
 
     public BrowserManager getBrowserManager() {
         return browserManager;
+    }
+
+    public String getVersion() {
+        String result = "";
+        Properties prop = new Properties();
+        String propFileName = "version.properties";
+
+        InputStream inputStream = MainContext.class.getClassLoader().getResourceAsStream(propFileName);
+
+        if (inputStream != null) {
+            try {
+                prop.load(inputStream);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        result = prop.getProperty("version");
+        return result;
     }
 }

@@ -29,8 +29,9 @@
                                 <Insets left="10.0"/>
                             </GridPane.margin>
                         </Label>
-                        <TextField promptText="Enter text" GridPane.columnIndex="1"/>
-                        <TextField promptText="Enter text" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <TextField fx:id="tfCKT" promptText="Enter text" GridPane.columnIndex="1"/>
+                        <TextField fx:id="tfPEName" promptText="Enter text" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="1"/>
                     </children>
                 </GridPane>
                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
@@ -94,10 +95,13 @@
                                                         <Insets left="10.0"/>
                                                     </padding>
                                                 </Label>
-                                                <TextField GridPane.columnIndex="1"/>
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                                                <TextField fx:id="tfConfigPEInterface" GridPane.columnIndex="1"/>
+                                                <TextField fx:id="tfConfigVRF" GridPane.columnIndex="1"
+                                                           GridPane.rowIndex="1"/>
+                                                <TextField fx:id="tfConfigPEIPAddress" GridPane.columnIndex="1"
+                                                           GridPane.rowIndex="2"/>
+                                                <TextField fx:id="tfConfigPEVLAN" GridPane.columnIndex="1"
+                                                           GridPane.rowIndex="3"/>
                                             </children>
                                             <HBox.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
@@ -136,12 +140,13 @@
                                                                 <Insets left="10.0"/>
                                                             </padding>
                                                         </Label>
-                                                        <TextField GridPane.columnIndex="1">
+                                                        <TextField fx:id="tfConfigCEIPADDRESS" GridPane.columnIndex="1">
                                                             <GridPane.margin>
                                                                 <Insets right="10.0"/>
                                                             </GridPane.margin>
                                                         </TextField>
-                                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                        <TextField fx:id="tfConfigCEVLAN" GridPane.columnIndex="1"
+                                                                   GridPane.rowIndex="1">
                                                             <GridPane.margin>
                                                                 <Insets right="10.0"/>
                                                             </GridPane.margin>
@@ -184,7 +189,7 @@
                     <content>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                             <children>
-                                <GridPane VBox.vgrow="NEVER">
+                                <GridPane fx:id="tfPT" VBox.vgrow="NEVER">
                                     <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
@@ -246,13 +251,16 @@
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                                             </padding>
                                         </Label>
-                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-                                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-                                        <TextField GridPane.columnIndex="3"/>
-                                        <TextField GridPane.columnIndex="3" GridPane.rowIndex="1"/>
-                                        <TextField GridPane.columnIndex="3" GridPane.rowIndex="3"/>
-                                        <TextField GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+                                        <TextField fx:id="tfPTCEIPAddress" GridPane.columnIndex="1"
+                                                   GridPane.rowIndex="1"/>
+                                        <TextField fx:id="tfPTPacketSize" GridPane.columnIndex="1"
+                                                   GridPane.rowIndex="3"/>
+                                        <TextField fx:id="tfPTPacketQTY" GridPane.columnIndex="1"
+                                                   GridPane.rowIndex="4"/>
+                                        <TextField fx:id="tfPTPEType" GridPane.columnIndex="3"/>
+                                        <TextField fx:id="tfPTVRF" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+                                        <TextField fx:id="tfPTPattern" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+                                        <TextField fx:id="tfPTTOS" GridPane.columnIndex="3" GridPane.rowIndex="4"/>
                                         <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
                                         <ChoiceBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
                                     </children>
@@ -294,10 +302,10 @@
                                 <Label text="CE IP Address" GridPane.rowIndex="1"/>
                                 <Label text="VRF" GridPane.rowIndex="2"/>
                                 <Label text="AS #" GridPane.rowIndex="3"/>
-                                <TextField GridPane.columnIndex="1"/>
-                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                                <TextField fx:id="tfPECheckPEInterface" GridPane.columnIndex="1"/>
+                                <TextField fx:id="tfPEChecCEIPAddress" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                                <TextField fx:id="tfPEChecVRF" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                                <TextField fx:id="tfPEChecAS" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
                                 <Button mnemonicParsing="false" onAction="#checkInputQ" text="Check input Q"
                                         GridPane.columnIndex="2">
                                     <GridPane.margin>
@@ -325,5 +333,10 @@
                 </Tab>
             </tabs>
         </TabPane>
+        <Label fx:id="lblVersion">
+            <VBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </VBox.margin>
+        </Label>
     </children>
 </VBox>
