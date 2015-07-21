@@ -1,0 +1,15 @@
+{
+    "browserConfiguration": {
+        "loginAddress": "http://linux.org.ru",
+        "loginHeader": "loginHeader",
+        "loginXpath": "loginXpath",
+        "passwordXpath": "passwordXpath",
+        "goButtonXpath": "goButtonXpath",
+        "loginSuccessAddress": "loginSuccessAddress",
+        "loginSuccessHeader": "loginSuccessHeader",
+        "loginSuccessTextXPath": "loginSuccessTextXPath",
+        "login": "login",
+        "password": "password"
+    },
+    "l3DBConfiguration": null
+}

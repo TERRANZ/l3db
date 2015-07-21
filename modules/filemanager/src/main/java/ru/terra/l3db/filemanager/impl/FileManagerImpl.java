@@ -4,6 +4,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.terra.l3db.shared.entity.Configuration;
+import ru.terra.l3db.shared.entity.L3DBConfiguration;
 import ru.terra.l3db.shared.entity.PreconfTest;
 import ru.terra.l3db.shared.parts.FileManager;
 
@@ -53,12 +54,12 @@ public class FileManagerImpl implements FileManager {
     }
 
     @Override
-    public Configuration.L3DBConfiguration loadL3DBConfig(String path) {
+    public L3DBConfiguration loadL3DBConfig(String path) {
         return null;
     }
 
-    @Override
-    public Configuration.PETroubleShootConfiguration loadPETConfiguration(String path) {
-        return null;
-    }
+//    @Override
+//    public Configuration.PETroubleShootConfiguration loadPETConfiguration(String path) {
+//        return null;
+//    }
 }

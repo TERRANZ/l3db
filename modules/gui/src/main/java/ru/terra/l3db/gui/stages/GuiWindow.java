@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import ru.terra.l3db.gui.parts.AbstractUIController;
 import ru.terra.l3db.shared.MainContext;
+import ru.terra.l3db.shared.entity.Browser;
 import ru.terra.l3db.shared.entity.Configuration;
 
 import java.io.File;
@@ -113,5 +114,12 @@ public class GuiWindow extends AbstractUIController {
 
     public void checkBGP(ActionEvent actionEvent) {
 
+    }
+
+    public void testLogin(ActionEvent actionEvent) {
+        new Thread(() -> {
+            Browser browser = MainContext.getInstance().getBrowserManager().createBrowser(configuration.browserConfiguration);
+            browser.login();
+        }).start();
     }
 }

@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.terra.l3db.shared.entity.Browser;
-import ru.terra.l3db.shared.entity.Configuration;
+import ru.terra.l3db.shared.entity.BrowserConfiguration;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,9 +26,9 @@ public class BrowserImpl implements Browser {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     private WebDriver driver;
-    private Configuration.BrowserConfiguration browserConfiguration;
+    private BrowserConfiguration browserConfiguration;
 
-    public BrowserImpl(Configuration.BrowserConfiguration browserConfiguration) {
+    public BrowserImpl(BrowserConfiguration browserConfiguration) {
         this.browserConfiguration = browserConfiguration;
         driver = new FirefoxDriver();
     }
@@ -43,7 +43,7 @@ public class BrowserImpl implements Browser {
     }
 
     @Override
-    public boolean login(String user, String pass, String userXpath, String passXpath) {
+    public boolean login() {
         openPage(browserConfiguration.loginAddress);
         if (isTextExists(browserConfiguration.loginHeader)) {
             inputData(browserConfiguration.loginXpath, browserConfiguration.login);
@@ -58,6 +58,8 @@ public class BrowserImpl implements Browser {
                     logger.error("Unable to wait", e);
                 }
 
+        } else {
+            logger.debug("Unable to locate text: " + browserConfiguration.loginHeader);
         }
         return true;
     }
@@ -134,7 +136,7 @@ public class BrowserImpl implements Browser {
 
     @Override
     public boolean isTextExists(String text) {
-        return false;
+        return true;
     }
 
     @Override

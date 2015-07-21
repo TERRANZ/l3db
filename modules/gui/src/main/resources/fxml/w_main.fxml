@@ -41,6 +41,11 @@
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                             </VBox.margin>
                         </Button>
+                        <Button fx:id="btnTestLogin" mnemonicParsing="false" onAction="#testLogin" text="Test Login">
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0"/>
+                            </VBox.margin>
+                        </Button>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                             <children>
                                 <Label text="PE Interface"/>

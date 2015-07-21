@@ -7,7 +7,7 @@ package ru.terra.l3db.shared.entity;
 public interface Browser {
     public void openPage(String page);
 
-    public boolean login(String user, String pass, String userXpath, String passXpath);
+    public boolean login();
 
     public boolean pressSubmit(String submitXpath, String text);
 

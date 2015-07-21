@@ -1,6 +1,7 @@
 package ru.terra.l3db.shared.parts;
 
 import ru.terra.l3db.shared.entity.Configuration;
+import ru.terra.l3db.shared.entity.L3DBConfiguration;
 import ru.terra.l3db.shared.entity.PreconfTest;
 
 import java.io.File;
@@ -20,7 +21,7 @@ public interface FileManager {
 
     public String loadEmailTemplate(String path);
 
-    public Configuration.L3DBConfiguration loadL3DBConfig(String path);
+    public L3DBConfiguration loadL3DBConfig(String path);
 
-    public Configuration.PETroubleShootConfiguration loadPETConfiguration(String path);
+//    public PETroubleShootConfiguration loadPETConfiguration(String path);
 }

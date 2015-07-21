@@ -64,4 +64,12 @@ public class MainContext {
         result = prop.getProperty("version");
         return result;
     }
+
+    public void setFileManager(FileManager fileManager) {
+        this.fileManager = fileManager;
+    }
+
+    public void setBrowserManager(BrowserManager browserManager) {
+        this.browserManager = browserManager;
+    }
 }
