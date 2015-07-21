@@ -11,10 +11,10 @@
     <modules>
         <module>modules/shared</module>
         <module>modules/browser</module>
-        <module>modules/l3db</module>
         <module>modules/petroubleshoot</module>
         <module>modules/filemanager</module>
         <module>modules/gui</module>
+        <module>modules/l3db</module>
     </modules>
 
     <build>
