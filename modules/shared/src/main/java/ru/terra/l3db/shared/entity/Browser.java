@@ -22,4 +22,6 @@ public interface Browser {
     public String[][] getElementTable(String xpath);
 
     public boolean isTextExists(String text);
+
+    public void alertClickButton(boolean ok);
 }

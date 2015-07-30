@@ -1,9 +1,6 @@
 package ru.terra.l3db.browser.impl;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -49,6 +46,8 @@ public class BrowserImpl implements Browser {
             inputData(browserConfiguration.loginXpath, browserConfiguration.login);
             inputData(browserConfiguration.passwordXpath, browserConfiguration.password);
             pressSubmit(browserConfiguration.goButtonXpath, "go");
+            alertClickButton(true);
+
             int tryes = 0;
             while (!isTextExists(browserConfiguration.loginSuccessHeader) || tryes > 5)
                 try {
@@ -153,4 +152,31 @@ public class BrowserImpl implements Browser {
     private List<WebElement> findElements(String xpath) {
         return (new WebDriverWait(driver, 5)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(xpath)));
     }
+
+    @Override
+    public void alertClickButton(boolean ok) {
+        logger.debug("Clicking alert ok: " + ok);
+        int tries = 0;
+        Alert alert = null;
+        while (tries < 5) {
+            tries++;
+            try {
+                alert = driver.switchTo().alert();
+                break;
+            } catch (NoAlertPresentException e) {
+                logger.debug("No alert present, sleeping");
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e1) {
+                    logger.error("Unable to sleep well", e1);
+                }
+            }
+        }
+        if (alert != null)
+            if (ok)
+                alert.accept();
+            else
+                alert.dismiss();
+    }
+
 }
