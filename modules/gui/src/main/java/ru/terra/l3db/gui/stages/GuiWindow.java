@@ -1,5 +1,6 @@
 package ru.terra.l3db.gui.stages;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -59,7 +60,9 @@ public class GuiWindow extends AbstractUIController {
     public TextField tfPEChecVRF;
     @FXML
     public TextField tfPEChecAS;
+
     private Configuration configuration;
+    private Browser browser;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -76,7 +79,10 @@ public class GuiWindow extends AbstractUIController {
     }
 
     public void showFullConfig(ActionEvent actionEvent) {
-
+        new Thread(() -> {
+            String[][] fullConfig = browser.loadL3DBConfig(tfCKT.getText());
+            Platform.runLater(() -> parseL3DBConfig(fullConfig));
+        }).start();
     }
 
     public void sendEmail(ActionEvent actionEvent) {
@@ -118,8 +124,11 @@ public class GuiWindow extends AbstractUIController {
 
     public void testLogin(ActionEvent actionEvent) {
         new Thread(() -> {
-            Browser browser = MainContext.getInstance().getBrowserManager().createBrowser(configuration.browserConfiguration);
+            browser = MainContext.getInstance().getBrowserManager().createBrowser(configuration);
             browser.login();
         }).start();
+    }
+
+    public void parseL3DBConfig(String[][] config) {
     }
 }

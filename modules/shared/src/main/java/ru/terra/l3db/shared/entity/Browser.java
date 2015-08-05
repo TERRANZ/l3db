@@ -7,8 +7,6 @@ package ru.terra.l3db.shared.entity;
 public interface Browser {
     public void openPage(String page);
 
-    public boolean login();
-
     public boolean pressSubmit(String submitXpath, String text);
 
     public boolean inputData(String boxPath, String text);
@@ -24,4 +22,8 @@ public interface Browser {
     public boolean isTextExists(String text);
 
     public void alertClickButton(boolean ok);
+
+    public boolean login();
+
+    public String[][] loadL3DBConfig(String CKT);
 }

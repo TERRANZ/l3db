@@ -32,7 +32,7 @@ public class ConfigurationfileTest extends TestCase {
         browserConfiguration.password = "password";
         configuration.browserConfiguration = browserConfiguration;
         L3DBConfiguration l3DBConfiguration = new L3DBConfiguration();
-        l3DBConfiguration.L3DBAddress = "L3DBAddress =";
+        l3DBConfiguration.L3DBAddress = "L3DBAddress";
         l3DBConfiguration.L3DBHeader = "L3DBHeader";
         l3DBConfiguration.CKTInputXpath = "CKTInputXpath";
         l3DBConfiguration.SearchButtonXpath = "SearchButtonXpath";

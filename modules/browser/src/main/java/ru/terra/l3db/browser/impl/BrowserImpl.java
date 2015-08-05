@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.terra.l3db.shared.entity.Browser;
-import ru.terra.l3db.shared.entity.BrowserConfiguration;
+import ru.terra.l3db.shared.entity.Configuration;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,10 +23,10 @@ public class BrowserImpl implements Browser {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     private WebDriver driver;
-    private BrowserConfiguration browserConfiguration;
+    private Configuration configuration;
 
-    public BrowserImpl(BrowserConfiguration browserConfiguration) {
-        this.browserConfiguration = browserConfiguration;
+    public BrowserImpl(Configuration configuration) {
+        this.configuration = configuration;
         driver = new FirefoxDriver();
     }
 
@@ -41,15 +41,15 @@ public class BrowserImpl implements Browser {
 
     @Override
     public boolean login() {
-        openPage(browserConfiguration.loginAddress);
-        if (isTextExists(browserConfiguration.loginHeader)) {
-            inputData(browserConfiguration.loginXpath, browserConfiguration.login);
-            inputData(browserConfiguration.passwordXpath, browserConfiguration.password);
-            pressSubmit(browserConfiguration.goButtonXpath, "go");
+        openPage(configuration.browserConfiguration.loginAddress);
+        if (isTextExists(configuration.browserConfiguration.loginHeader)) {
+            inputData(configuration.browserConfiguration.loginXpath, configuration.browserConfiguration.login);
+            inputData(configuration.browserConfiguration.passwordXpath, configuration.browserConfiguration.password);
+            pressSubmit(configuration.browserConfiguration.goButtonXpath, "go");
             alertClickButton(true);
 
             int tryes = 0;
-            while (!isTextExists(browserConfiguration.loginSuccessHeader) || tryes > 5)
+            while (!isTextExists(configuration.browserConfiguration.loginSuccessHeader) || tryes > 5)
                 try {
                     Thread.sleep(500);
                     tryes++;
@@ -57,10 +57,23 @@ public class BrowserImpl implements Browser {
                     logger.error("Unable to wait", e);
                 }
 
-        } else {
-            logger.debug("Unable to locate text: " + browserConfiguration.loginHeader);
-        }
+        } else
+            logger.debug("Unable to locate text: " + configuration.browserConfiguration.loginHeader);
+
         return true;
+    }
+
+    @Override
+    public String[][] loadL3DBConfig(String CKT) {
+        openPage(configuration.l3DBConfiguration.L3DBAddress);
+        if (isTextExists(configuration.l3DBConfiguration.L3DBHeader)) {
+            inputData(configuration.l3DBConfiguration.CKTInputXpath, CKT);
+            pressSubmit(configuration.l3DBConfiguration.SearchButtonXpath, "go");
+            return getElementTable(configuration.l3DBConfiguration.DataTableXpath);
+        } else
+            logger.debug("Unable to locate text " + configuration.l3DBConfiguration.L3DBHeader);
+
+        return new String[0][];
     }
 
     @Override
