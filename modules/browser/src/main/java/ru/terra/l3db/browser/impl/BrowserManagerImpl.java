@@ -8,9 +8,10 @@ import ru.terra.l3db.shared.parts.BrowserManager;
  * Date: 15.06.15
  * Time: 10:52
  */
-public class BrowserManagerImpl implements BrowserManager {
+public class BrowserManagerImpl extends BrowserManager {
     @Override
     public Browser createBrowser(Configuration configuration) {
-        return new BrowserImpl(configuration);
+        setBrowser(new BrowserImpl(configuration));
+        return getBrowser();
     }
 }

@@ -1,5 +1,6 @@
 package ru.terra.l3db.shared;
 
+import ru.terra.l3db.shared.entity.Configuration;
 import ru.terra.l3db.shared.exception.L3DBException;
 import ru.terra.l3db.shared.parts.BrowserManager;
 import ru.terra.l3db.shared.parts.FileManager;
@@ -16,6 +17,7 @@ public class MainContext {
     private static MainContext instance = new MainContext();
     private FileManager fileManager;
     private BrowserManager browserManager;
+    private Configuration configuration;
 
     private MainContext() {
     }
@@ -27,16 +29,12 @@ public class MainContext {
     public void init() throws L3DBException {
     }
 
-    public void gotoL3_DB_Page(String page) {
+    public void login() {
     }
 
-    public void inputCKT_ID(String id) {
-    }
-
-    public void pressSubmit() {
-    }
-
-    public void requestInfo(String... args) {
+    public String[][] loadL3DBFullConfig(String CKT) {
+        browserManager.createBrowser(configuration).login();
+        return browserManager.getBrowser().loadL3DBConfig(CKT);
     }
 
     public FileManager getFileManager() {
@@ -71,5 +69,13 @@ public class MainContext {
 
     public void setBrowserManager(BrowserManager browserManager) {
         this.browserManager = browserManager;
+    }
+
+    public Configuration getConfiguration() {
+        return configuration;
+    }
+
+    public void setConfiguration(Configuration configuration) {
+        this.configuration = configuration;
     }
 }

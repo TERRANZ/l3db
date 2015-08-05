@@ -8,8 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import ru.terra.l3db.gui.parts.AbstractUIController;
 import ru.terra.l3db.shared.MainContext;
-import ru.terra.l3db.shared.entity.Browser;
-import ru.terra.l3db.shared.entity.Configuration;
 
 import java.io.File;
 import java.net.URL;
@@ -61,9 +59,6 @@ public class GuiWindow extends AbstractUIController {
     @FXML
     public TextField tfPEChecAS;
 
-    private Configuration configuration;
-    private Browser browser;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         lblVersion.setText("Version: " + MainContext.getInstance().getVersion());
@@ -75,12 +70,12 @@ public class GuiWindow extends AbstractUIController {
         fileChooser.setTitle("Open tester configuration file");
         final File configFile = fileChooser.showOpenDialog(currStage);
         if (configFile != null)
-            configuration = MainContext.getInstance().getFileManager().loadMainConfiguration(configFile);
+            MainContext.getInstance().setConfiguration(MainContext.getInstance().getFileManager().loadMainConfiguration(configFile));
     }
 
     public void showFullConfig(ActionEvent actionEvent) {
         new Thread(() -> {
-            String[][] fullConfig = browser.loadL3DBConfig(tfCKT.getText());
+            String[][] fullConfig = MainContext.getInstance().loadL3DBFullConfig(tfCKT.getText());
             Platform.runLater(() -> parseL3DBConfig(fullConfig));
         }).start();
     }
@@ -95,7 +90,7 @@ public class GuiWindow extends AbstractUIController {
         fileChooser.setTitle("Save tester configuration file");
         final File configFile = fileChooser.showSaveDialog(currStage);
         if (configFile != null)
-            MainContext.getInstance().getFileManager().saveMainConfiguration(configuration, configFile);
+            MainContext.getInstance().getFileManager().saveMainConfiguration(MainContext.getInstance().getConfiguration(), configFile);
     }
 
     public void simplePingTest(ActionEvent actionEvent) {
@@ -123,12 +118,13 @@ public class GuiWindow extends AbstractUIController {
     }
 
     public void testLogin(ActionEvent actionEvent) {
-        new Thread(() -> {
-            browser = MainContext.getInstance().getBrowserManager().createBrowser(configuration);
-            browser.login();
-        }).start();
+//        new Thread(() -> {
+//            browser = MainContext.getInstance().getBrowserManager().createBrowser(configuration);
+//            browser.login();
+//        }).start();
     }
 
     public void parseL3DBConfig(String[][] config) {
+
     }
 }
