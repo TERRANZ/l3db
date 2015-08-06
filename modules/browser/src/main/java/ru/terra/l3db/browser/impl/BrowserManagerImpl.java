@@ -1,7 +1,6 @@
 package ru.terra.l3db.browser.impl;
 
 import ru.terra.l3db.shared.entity.Browser;
-import ru.terra.l3db.shared.entity.Configuration;
 import ru.terra.l3db.shared.parts.BrowserManager;
 
 /**
@@ -10,7 +9,7 @@ import ru.terra.l3db.shared.parts.BrowserManager;
  */
 public class BrowserManagerImpl extends BrowserManager {
     @Override
-    public Browser createBrowser(Configuration configuration) {
+    public Browser createBrowser() {
         setBrowser(new BrowserImpl(configuration));
         return getBrowser();
     }

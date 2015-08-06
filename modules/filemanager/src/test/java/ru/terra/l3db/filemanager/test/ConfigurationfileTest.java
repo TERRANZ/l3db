@@ -2,8 +2,8 @@ package ru.terra.l3db.filemanager.test;
 
 import junit.framework.TestCase;
 import ru.terra.l3db.filemanager.impl.FileManagerImpl;
-import ru.terra.l3db.shared.entity.BrowserConfiguration;
-import ru.terra.l3db.shared.entity.Configuration;
+import ru.terra.l3db.shared.entity.config.BrowserConfiguration;
+import ru.terra.l3db.shared.entity.config.Configuration;
 import ru.terra.l3db.shared.entity.L3DBConfiguration;
 
 import java.io.File;

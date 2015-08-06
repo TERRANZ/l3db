@@ -1,6 +1,7 @@
 package ru.terra.l3db.shared;
 
-import ru.terra.l3db.shared.entity.Configuration;
+import ru.terra.l3db.shared.entity.PETroubleshoot;
+import ru.terra.l3db.shared.entity.config.Configuration;
 import ru.terra.l3db.shared.exception.L3DBException;
 import ru.terra.l3db.shared.parts.BrowserManager;
 import ru.terra.l3db.shared.parts.FileManager;
@@ -18,6 +19,7 @@ public class MainContext {
     private FileManager fileManager;
     private BrowserManager browserManager;
     private Configuration configuration;
+    private PETroubleshoot peTroubleshoot;
 
     private MainContext() {
     }
@@ -26,15 +28,10 @@ public class MainContext {
         return instance;
     }
 
-    public void init() throws L3DBException {
-    }
-
-    public void login() {
-    }
-
-    public String[][] loadL3DBFullConfig(String CKT) {
-        browserManager.createBrowser(configuration).login();
-        return browserManager.getBrowser().loadL3DBConfig(CKT);
+    public void init(BrowserManager browserManager, FileManager fileManager, PETroubleshoot peTroubleshoot) throws L3DBException {
+        this.browserManager = browserManager;
+        this.fileManager = fileManager;
+        this.peTroubleshoot = peTroubleshoot;
     }
 
     public FileManager getFileManager() {
@@ -77,5 +74,25 @@ public class MainContext {
 
     public void setConfiguration(Configuration configuration) {
         this.configuration = configuration;
+    }
+
+    public PETroubleshoot getPeTroubleshoot() {
+        return peTroubleshoot;
+    }
+
+    public void setPeTroubleshoot(PETroubleshoot peTroubleshoot) {
+        this.peTroubleshoot = peTroubleshoot;
+    }
+
+
+    public String[][] loadL3DBFullConfig(String CKT) {
+        browserManager.setConfiguration(configuration);
+        browserManager.createBrowser().login();
+        return browserManager.getBrowser().loadL3DBConfig(CKT);
+    }
+
+    public boolean runTest(String NetSelectOptionName, String PE_Name) {
+        peTroubleshoot.setConfiguration(configuration);
+        return true;
     }
 }

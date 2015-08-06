@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.terra.l3db.shared.entity.Browser;
-import ru.terra.l3db.shared.entity.Configuration;
+import ru.terra.l3db.shared.entity.config.Configuration;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -3,9 +3,8 @@ package ru.terra.l3db.filemanager.impl;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.terra.l3db.shared.entity.Configuration;
 import ru.terra.l3db.shared.entity.L3DBConfiguration;
-import ru.terra.l3db.shared.entity.PreconfTest;
+import ru.terra.l3db.shared.entity.config.Configuration;
 import ru.terra.l3db.shared.parts.FileManager;
 
 import java.io.File;
@@ -36,16 +35,6 @@ public class FileManagerImpl implements FileManager {
         } catch (IOException e) {
             logger.error("Unable to write configuration to file", e);
         }
-    }
-
-    @Override
-    public PreconfTest requestPreconfTest() {
-        return null;
-    }
-
-    @Override
-    public void returnTestsAndDefaultDir(PreconfTest preconfTest, String defDir) {
-
     }
 
     @Override

@@ -1,4 +1,4 @@
-package ru.terra.l3db.shared.entity;
+package ru.terra.l3db.shared.entity.config;
 
 /**
  * Date: 21.07.15

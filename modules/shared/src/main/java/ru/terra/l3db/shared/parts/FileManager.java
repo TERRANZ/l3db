@@ -1,8 +1,7 @@
 package ru.terra.l3db.shared.parts;
 
-import ru.terra.l3db.shared.entity.Configuration;
 import ru.terra.l3db.shared.entity.L3DBConfiguration;
-import ru.terra.l3db.shared.entity.PreconfTest;
+import ru.terra.l3db.shared.entity.config.Configuration;
 
 import java.io.File;
 
@@ -14,10 +13,6 @@ public interface FileManager {
     public Configuration loadMainConfiguration(File configurationFile);
 
     public void saveMainConfiguration(Configuration configuration, File targetFile);
-
-    public PreconfTest requestPreconfTest();
-
-    public void returnTestsAndDefaultDir(PreconfTest preconfTest, String defDir);
 
     public String loadEmailTemplate(String path);
 

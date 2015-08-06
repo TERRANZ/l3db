@@ -12,6 +12,8 @@ import ru.terra.l3db.shared.MainContext;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Date: 13.06.15
@@ -59,6 +61,8 @@ public class GuiWindow extends AbstractUIController {
     @FXML
     public TextField tfPEChecAS;
 
+    private ExecutorService executor = Executors.newFixedThreadPool(5);
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         lblVersion.setText("Version: " + MainContext.getInstance().getVersion());
@@ -74,10 +78,10 @@ public class GuiWindow extends AbstractUIController {
     }
 
     public void showFullConfig(ActionEvent actionEvent) {
-        new Thread(() -> {
+        executor.submit(() -> {
             String[][] fullConfig = MainContext.getInstance().loadL3DBFullConfig(tfCKT.getText());
             Platform.runLater(() -> parseL3DBConfig(fullConfig));
-        }).start();
+        });
     }
 
     public void sendEmail(ActionEvent actionEvent) {
@@ -125,6 +129,5 @@ public class GuiWindow extends AbstractUIController {
     }
 
     public void parseL3DBConfig(String[][] config) {
-
     }
 }
