@@ -2,9 +2,10 @@ package ru.terra.l3db.filemanager.test;
 
 import junit.framework.TestCase;
 import ru.terra.l3db.filemanager.impl.FileManagerImpl;
+import ru.terra.l3db.shared.entity.L3DBConfiguration;
 import ru.terra.l3db.shared.entity.config.BrowserConfiguration;
 import ru.terra.l3db.shared.entity.config.Configuration;
-import ru.terra.l3db.shared.entity.L3DBConfiguration;
+import ru.terra.l3db.shared.entity.config.PETestngConfiguration;
 
 import java.io.File;
 
@@ -41,6 +42,14 @@ public class ConfigurationfileTest extends TestCase {
         l3DBConfiguration.DataTableInfoXPath = "DataTableInfoXPath";
         l3DBConfiguration.ListOfColumns = "ListOfColumns";
         l3DBConfiguration.ColumnsQty = "ColumnsQty";
+        configuration.l3DBConfiguration = l3DBConfiguration;
+        PETestngConfiguration peTestngConfiguration = new PETestngConfiguration();
+        peTestngConfiguration.netSelectXpath = "netSelectXpath";
+        peTestngConfiguration.testWebAddress = "testWebAddress";
+        peTestngConfiguration.testWebHeader = "testWebHeader";
+        peTestngConfiguration.topFrameName = "topFrameName";
+        peTestngConfiguration.PESelectXpath = "PESelectXpath";
+        configuration.peTestingConfiguration = peTestngConfiguration;
 
 
         new FileManagerImpl().saveMainConfiguration(configuration, new File("test.l3db"));

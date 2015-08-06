@@ -11,5 +11,5 @@ public class Configuration {
 
     public L3DBConfiguration l3DBConfiguration;
 
-    public PETestngConfiguration peTestng;
+    public PETestngConfiguration peTestingConfiguration;
 }
