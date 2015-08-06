@@ -88,6 +88,11 @@ public class MainContext {
     public String[][] loadL3DBFullConfig(String CKT) {
         browserManager.setConfiguration(configuration);
         browserManager.createBrowser().login();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return browserManager.getBrowser().loadL3DBConfig(CKT);
     }
 
