@@ -6,10 +6,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
+import org.codehaus.jackson.map.ObjectMapper;
 import ru.terra.l3db.gui.parts.AbstractUIController;
 import ru.terra.l3db.shared.MainContext;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutorService;
@@ -129,5 +131,10 @@ public class GuiWindow extends AbstractUIController {
     }
 
     public void parseL3DBConfig(String[][] config) {
+        try {
+            logger.debug(new ObjectMapper().writeValueAsString(config));
+        } catch (IOException e) {
+            logger.error("Unable to serialize l3db full configu");
+        }
     }
 }
