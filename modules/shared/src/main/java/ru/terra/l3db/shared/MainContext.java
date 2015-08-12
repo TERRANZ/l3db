@@ -8,6 +8,8 @@ import ru.terra.l3db.shared.parts.FileManager;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
 
 /**
@@ -85,7 +87,7 @@ public class MainContext {
     }
 
 
-    public String[][] loadL3DBFullConfig(String CKT) {
+    public ArrayList<HashMap<String, String>> loadL3DBFullConfig(String CKT) {
         browserManager.setConfiguration(configuration);
         browserManager.createBrowser().login();
         try {

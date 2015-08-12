@@ -1,18 +1,17 @@
 package ru.terra.l3db.gui.stages;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
-import org.codehaus.jackson.map.ObjectMapper;
 import ru.terra.l3db.gui.parts.AbstractUIController;
 import ru.terra.l3db.shared.MainContext;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -81,8 +80,17 @@ public class GuiWindow extends AbstractUIController {
 
     public void showFullConfig(ActionEvent actionEvent) {
         executor.submit(() -> {
-            String[][] fullConfig = MainContext.getInstance().loadL3DBFullConfig(tfCKT.getText());
-            Platform.runLater(() -> parseL3DBConfig(fullConfig));
+            try {
+                ArrayList<HashMap<String, String>> fullConfig = MainContext.getInstance().loadL3DBFullConfig(tfCKT.getText());
+                logger.debug("Received rows: " + fullConfig.size());
+                for (HashMap<String, String> cfg : fullConfig)
+                    for (String k : cfg.keySet())
+                        logger.debug(k + " = " + cfg.get(k));
+
+            } catch (Exception e) {
+                logger.error("Unable to serialize l3db full config", e);
+            }
+//            Platform.runLater(() -> parseL3DBConfig(fullConfig));
         });
     }
 
@@ -131,10 +139,6 @@ public class GuiWindow extends AbstractUIController {
     }
 
     public void parseL3DBConfig(String[][] config) {
-        try {
-            logger.debug(new ObjectMapper().writeValueAsString(config));
-        } catch (IOException e) {
-            logger.error("Unable to serialize l3db full configu");
-        }
+
     }
 }

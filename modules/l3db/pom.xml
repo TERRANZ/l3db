@@ -13,6 +13,12 @@
     <artifactId>l3db</artifactId>
     <dependencies>
         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>ru.terra.l3db</groupId>
             <artifactId>shared</artifactId>
             <version>1.0.0</version>

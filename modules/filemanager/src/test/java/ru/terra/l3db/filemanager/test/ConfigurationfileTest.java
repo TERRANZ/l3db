@@ -42,6 +42,7 @@ public class ConfigurationfileTest extends TestCase {
         l3DBConfiguration.DataTableInfoXPath = "DataTableInfoXPath";
         l3DBConfiguration.ListOfColumns = "ListOfColumns";
         l3DBConfiguration.ColumnsQty = "ColumnsQty";
+        l3DBConfiguration.tableWaitTime = 30;
         configuration.l3DBConfiguration = l3DBConfiguration;
         PETestngConfiguration peTestngConfiguration = new PETestngConfiguration();
         peTestngConfiguration.netSelectXpath = "netSelectXpath";

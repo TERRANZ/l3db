@@ -13,7 +13,7 @@ public abstract class BrowserManager extends Configurable {
     public abstract Browser createBrowser();
 
     public Browser getBrowser() {
-        return browser;
+        return browser != null ? browser : createBrowser();
     }
 
     public void setBrowser(Browser browser) {

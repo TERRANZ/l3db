@@ -6,4 +6,5 @@ package ru.terra.l3db.shared.entity;
  */
 public class L3DBConfiguration {
     public String L3DBAddress, L3DBHeader, CKTInputXpath, SearchButtonXpath, DataTableXpath, DataTableHeaderXPath, DataTableInfoXPath, ListOfColumns, ColumnsQty;
+    public Integer tableWaitTime = 30;
 }

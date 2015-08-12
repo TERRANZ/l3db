@@ -1,5 +1,8 @@
 package ru.terra.l3db.shared.entity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * Date: 15.06.15
  * Time: 10:50
@@ -17,7 +20,7 @@ public interface Browser {
 
     public String getElementText(String xpath);
 
-    public String[][] getElementTable(String xpath);
+    public ArrayList<HashMap<String, String>> getElementTable(String xpath);
 
     public boolean isTextExists(String text);
 
@@ -25,5 +28,5 @@ public interface Browser {
 
     public boolean login();
 
-    public String[][] loadL3DBConfig(String CKT);
+    public ArrayList<HashMap<String, String>> loadL3DBConfig(String CKT);
 }

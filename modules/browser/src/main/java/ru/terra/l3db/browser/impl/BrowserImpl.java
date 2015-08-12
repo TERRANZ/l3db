@@ -64,16 +64,21 @@ public class BrowserImpl implements Browser {
     }
 
     @Override
-    public String[][] loadL3DBConfig(String CKT) {
+    public ArrayList<HashMap<String, String>> loadL3DBConfig(String CKT) {
         openPage(configuration.l3DBConfiguration.L3DBAddress);
         if (isTextExists(configuration.l3DBConfiguration.L3DBHeader)) {
             inputData(configuration.l3DBConfiguration.CKTInputXpath, CKT);
             pressSubmit(configuration.l3DBConfiguration.SearchButtonXpath, "go");
+            try {
+                Thread.sleep(1000 * configuration.l3DBConfiguration.tableWaitTime);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return getElementTable(configuration.l3DBConfiguration.DataTableXpath);
         } else
             logger.debug("Unable to locate text " + configuration.l3DBConfiguration.L3DBHeader);
 
-        return new String[0][];
+        return new ArrayList<>();
     }
 
     @Override
@@ -112,7 +117,7 @@ public class BrowserImpl implements Browser {
     }
 
     @Override
-    public String[][] getElementTable(String xpath) {
+    public ArrayList<HashMap<String, String>> getElementTable(String xpath) {
         // simplified: find table which contains the keyword
         Optional<WebElement> element = findElement(xpath);
         if (!element.isPresent())
@@ -121,29 +126,30 @@ public class BrowserImpl implements Browser {
         WebElement tableElement = element.get();
 
 
-        ArrayList<HashMap<String, WebElement>> userTable = new ArrayList<>();
+        ArrayList<HashMap<String, String>> userTable = new ArrayList<>();
         List<WebElement> rowElements = tableElement.findElements(By.xpath(".//tr"));
 
         ArrayList<String> columnNames = new ArrayList<>();
-        List<WebElement> headerElements = rowElements.get(0).findElements(By.xpath(".//th"));
+        List<WebElement> headerElements = rowElements.get(0).findElements(By.xpath(".//td"));
         for (WebElement headerElement : headerElements) {
             columnNames.add(headerElement.getText());
         }
 
         for (WebElement rowElement : rowElements) {
-            HashMap<String, WebElement> row = new HashMap<>();
+            HashMap<String, String> row = new HashMap<>();
 
             // add table cells to current row
             int columnIndex = 0;
             List<WebElement> cellElements = rowElement.findElements(By.xpath(".//td"));
             for (WebElement cellElement : cellElements) {
-                row.put(columnNames.get(columnIndex), cellElement);
+                row.put(columnNames.get(columnIndex), cellElement.getText());
                 columnIndex++;
             }
 
             userTable.add(row);
         }
-        return new String[0][];
+        userTable.remove(0);
+        return userTable;
     }
 
     @Override
