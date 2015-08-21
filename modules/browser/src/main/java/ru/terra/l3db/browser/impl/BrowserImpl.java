@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.terra.l3db.shared.entity.Browser;
 import ru.terra.l3db.shared.entity.config.Configuration;
+import ru.terra.l3db.shared.util.TextUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -132,7 +133,7 @@ public class BrowserImpl implements Browser {
         ArrayList<String> columnNames = new ArrayList<>();
         List<WebElement> headerElements = rowElements.get(0).findElements(By.xpath(".//td"));
         for (WebElement headerElement : headerElements) {
-            columnNames.add(headerElement.getText());
+            columnNames.add(TextUtil.filterEOL(headerElement.getText()));
         }
 
         for (WebElement rowElement : rowElements) {
@@ -142,7 +143,7 @@ public class BrowserImpl implements Browser {
             int columnIndex = 0;
             List<WebElement> cellElements = rowElement.findElements(By.xpath(".//td"));
             for (WebElement cellElement : cellElements) {
-                row.put(columnNames.get(columnIndex), cellElement.getText());
+                row.put(columnNames.get(columnIndex), TextUtil.filterEOL(cellElement.getText()));
                 columnIndex++;
             }
 

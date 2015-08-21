@@ -8,4 +8,8 @@ public class TextUtil {
     public static String getNonEmptyString(String in) {
         return in != null ? in : "";
     }
+
+    public static String filterEOL(String in) {
+        return getNonEmptyString(in).replace("\n", "").replace("\r", "");
+    }
 }
