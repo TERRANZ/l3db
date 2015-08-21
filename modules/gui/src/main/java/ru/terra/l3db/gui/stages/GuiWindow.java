@@ -84,10 +84,10 @@ public class GuiWindow extends AbstractUIController {
         executor.submit(() -> {
             try {
                 ArrayList<HashMap<String, String>> fullConfig = MainContext.getInstance().loadL3DBFullConfig(tfCKT.getText());
-//                logger.debug("Received rows: " + fullConfig.size());
-//                for (HashMap<String, String> cfg : fullConfig)
-//                    for (String k : cfg.keySet())
-//                        logger.debug(k + " = " + cfg.get(k));
+                logger.debug("Received rows: " + fullConfig.size());
+                for (HashMap<String, String> cfg : fullConfig)
+                    for (String k : cfg.keySet())
+                        logger.debug(k + " = " + cfg.get(k));
                 if (fullConfig.size() > 0 && fullConfig.get(0).size() > 0) {
                     HashMap<String, String> cfg = fullConfig.get(0);
                     Platform.runLater(() -> {
