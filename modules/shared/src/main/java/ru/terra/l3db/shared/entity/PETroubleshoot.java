@@ -15,7 +15,7 @@ public abstract class PETroubleshoot extends Configurable {
 
     public abstract void checkInterfaceCounters(String pe_inteface_name);
 
-    public abstract void simplePingText(String pe_inteface_name, String ce_ip_address);
+    public abstract void simplePingText(String vrf, String ce_ip_address, String packetQTY);
 
     public abstract void advancedPingTest(String ce_ip_address, String vrf, String packet_qty, String pattern, String packetSize, String fastOption);
 

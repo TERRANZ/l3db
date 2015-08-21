@@ -1,6 +1,7 @@
 package test;
 
 import junit.framework.TestCase;
+import org.codehaus.jackson.map.ObjectMapper;
 import ru.terra.l3db.browser.impl.BrowserManagerImpl;
 import ru.terra.l3db.filemanager.impl.FileManagerImpl;
 import ru.terra.l3db.petroubleshoot.PETesterImpl;
@@ -23,8 +24,9 @@ public class BrowserImplTest extends TestCase {
     }
 
     public void testReadTable() throws Exception {
-        Browser browser = MainContext.getInstance().getBrowserManager().getBrowser();
-        browser.openPage("file:////home/terranz/projects/freelance/l3db/modules/l3db/l3db_bare_table.htm");
-        ArrayList<HashMap<String, String>> table = browser.getElementTable("//*[@id=\"DataTable\"]");
+//        Browser browser = MainContext.getInstance().getBrowserManager().getBrowser();
+//        browser.openPage("file:////home/terranz/Dropbox/projects/freelance/l3db/modules/l3db/l3db_bare_table.htm");
+//        ArrayList<HashMap<String, String>> table = browser.getElementTable("//*[@id=\"DataTable\"]");
+//        System.out.println(new ObjectMapper().writeValueAsString(table));
     }
 }

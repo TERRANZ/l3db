@@ -5,5 +5,5 @@ package ru.terra.l3db.shared.entity.config;
  * Time: 16:42
  */
 public class PETestngConfiguration {
-    public String testWebAddress, testWebHeader, topFrameName, netSelectXpath, PESelectXpath;
+    public String testWebAddress, testWebHeader, topFrameName, netSelectXpath, PESelectXpath, netSelectOptionName, peSelectXpath;
 }

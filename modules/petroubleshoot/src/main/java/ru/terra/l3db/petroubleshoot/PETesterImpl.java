@@ -1,5 +1,7 @@
 package ru.terra.l3db.petroubleshoot;
 
+import ru.terra.l3db.shared.MainContext;
+import ru.terra.l3db.shared.entity.Browser;
 import ru.terra.l3db.shared.entity.PETroubleshoot;
 
 /**
@@ -7,10 +9,16 @@ import ru.terra.l3db.shared.entity.PETroubleshoot;
  * Time: 16:27
  */
 public class PETesterImpl extends PETroubleshoot {
+    private Browser browser;
 
     @Override
     public void Connect2PE(String peName) {
-
+        browser = MainContext.getInstance().getBrowserManager().getBrowser();
+        browser.openPage(configuration.peTestingConfiguration.testWebAddress);
+        if (browser.isTextExists(configuration.peTestingConfiguration.testWebHeader)) {
+            browser.chooseDropBoxElement(configuration.peTestingConfiguration.netSelectXpath, configuration.peTestingConfiguration.netSelectOptionName);
+            browser.chooseDropBoxElement(configuration.peTestingConfiguration.peSelectXpath, peName);
+        }
     }
 
     @Override
@@ -34,7 +42,7 @@ public class PETesterImpl extends PETroubleshoot {
     }
 
     @Override
-    public void simplePingText(String pe_inteface_name, String ce_ip_address) {
+    public void simplePingText(String pe_inteface_name, String ce_ip_address, String packetQTY) {
 
     }
 

@@ -1,5 +1,6 @@
 package ru.terra.l3db.gui.stages;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -7,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import ru.terra.l3db.gui.parts.AbstractUIController;
 import ru.terra.l3db.shared.MainContext;
+import ru.terra.l3db.shared.util.TextUtil;
 
 import java.io.File;
 import java.net.URL;
@@ -82,11 +84,28 @@ public class GuiWindow extends AbstractUIController {
         executor.submit(() -> {
             try {
                 ArrayList<HashMap<String, String>> fullConfig = MainContext.getInstance().loadL3DBFullConfig(tfCKT.getText());
-                logger.debug("Received rows: " + fullConfig.size());
-                for (HashMap<String, String> cfg : fullConfig)
-                    for (String k : cfg.keySet())
-                        logger.debug(k + " = " + cfg.get(k));
-
+//                logger.debug("Received rows: " + fullConfig.size());
+//                for (HashMap<String, String> cfg : fullConfig)
+//                    for (String k : cfg.keySet())
+//                        logger.debug(k + " = " + cfg.get(k));
+                if (fullConfig.size() > 0 && fullConfig.get(0).size() > 0) {
+                    HashMap<String, String> cfg = fullConfig.get(0);
+                    Platform.runLater(() -> {
+                        tfPEName.setText(TextUtil.getNonEmptyString(cfg.get("PE")));
+                        tfConfigPEInterface.setText(TextUtil.getNonEmptyString(cfg.get("PE Interface")));
+                        tfConfigVRF.setText(TextUtil.getNonEmptyString(cfg.get("VRF")));
+                        tfConfigPEIPAddress.setText(MainContext.getInstance().getPureIpAddress(TextUtil.getNonEmptyString(cfg.get("PE")))[0]);
+                        tfConfigCEIPADDRESS.setText(TextUtil.getNonEmptyString(cfg.get("CE IPv4 Addr")));
+                        tfConfigPEVLAN.setText(TextUtil.getNonEmptyString(cfg.get("PE")));
+                        tfConfigCEVLAN.setText(TextUtil.getNonEmptyString(cfg.get("CE DLCI, VPI/VCI, VLAN")));
+                        tfPTVRF.setText(TextUtil.getNonEmptyString(cfg.get("VRF")));
+                        tfPTCEIPAddress.setText(TextUtil.getNonEmptyString(cfg.get("CE IPv4 Addr")));
+                        tfPECheckPEInterface.setText(TextUtil.getNonEmptyString(cfg.get("PE Interface")));
+                        tfPEChecCEIPAddress.setText(TextUtil.getNonEmptyString(cfg.get("CE IPv4 Addr")));
+                        tfPEChecVRF.setText(TextUtil.getNonEmptyString(cfg.get("VRF")));
+                        tfPEChecAS.setText(TextUtil.getNonEmptyString(cfg.get("AS#")));
+                    });
+                }
             } catch (Exception e) {
                 logger.error("Unable to serialize l3db full config", e);
             }
@@ -108,7 +127,7 @@ public class GuiWindow extends AbstractUIController {
     }
 
     public void simplePingTest(ActionEvent actionEvent) {
-
+        MainContext.getInstance().simplePingTest(tfPTVRF.getText(), tfPTCEIPAddress.getText(), tfPTPacketQTY.getText());
     }
 
     public void runPingTest(ActionEvent actionEvent) {

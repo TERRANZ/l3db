@@ -102,4 +102,13 @@ public class MainContext {
         peTroubleshoot.setConfiguration(configuration);
         return true;
     }
+
+    public String[] getPureIpAddress(String ceAdd) {
+        ceAdd = ceAdd.replaceAll(" ", "");
+        return ceAdd.split("/");
+    }
+
+    public void simplePingTest(String vrf, String ce_ip_address, String packetQTY) {
+        peTroubleshoot.simplePingText(vrf, ce_ip_address, packetQTY);
+    }
 }
